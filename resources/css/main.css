@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Karla|Rubik:500');
+
 /* -------------- VARIABLES */
 :root {
 
@@ -76,6 +78,17 @@
 
 }
 
+@media screen and (min-width: 800px) {
+    :root {
+        --font-size-site-title: 54px;
+        --font-size-page-title: 80px;
+        --font-size-section-title: 48px;
+
+        --padder: 2%;
+
+    }
+}
+
 
 /* -------------- GLOBAL DEFAULTS */
 * {box-sizing: border-box;
@@ -95,8 +108,34 @@ body {
 }
 
 /* -------------- HEADINGS AND TYPE */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--heading-text-color);
+    font-weight: normal;
+}
 
+h1 {
+    font-size: var(--font-size-page-title);
+}
 
+h2 {
+    font-size: var(--font-size-section-title)
+}
+
+h3 {
+    font-size: var(--font-size-sub-title)
+}
+/* links*/
+a {
+   color: var(--color-primary-c);
+}
+a:hover,
+a:visited {
+    color: var(--color-secondary-b)
+}
 /* -------------- LAYOUT */
 .layout-wide, .layout-full-width {
     margin-left: auto;
@@ -144,13 +183,162 @@ header .layout-wide {
 }
 
 /* -------------- NAVIGATION */
+.navigation {
+    background-color: var(--alternative-bg-color);
+}
+.nav-prompt {
+    width: 100%;
+    padding: var(--padder) 0;
+    color: white;
+    background-color: var(--alternative-bg-color);
+    border: none;
+    border-top: 1px solid #34495e;
+}
+.nav-inner {
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 0;
+    transition: var(--transition-time);
+
+}
+.nav-inner ul {
+    padding: 0 var(--padder);
+    margin: 0;
+    list-style: none;
+}
+
+.nav-inner li {
+    text-align: center;
+
+}
+.nav-inner a {
+    color: var(--alternative-text-color);
+    padding: 20px 5px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-secondary-c);
+    font-family: var(--heading-font);
+}
+
+.nav-inner[aria-expanded="false"] {
+    max-height: 0;
+}
+.nav-inner[aria-expanded="true"] {
+    max-height: 100vh
+}
+
+@media screen and (min-width: 800px) {
+    .navigation {
+        padding: 20px 0;
+    }
+    .nav-prompt {
+        display: none;
+    }
+    .nav-inner {
+        margin-bottom: 0;
+    }
+    .nav-inner[aria-expanded="false"] {
+        max-height: 100vh;
+    }
+    .nav-inner a {
+        border-bottom: 2px solid transparent;
+        padding: 0;
+    }
+    .nav-inner a.active {
+        border-bottom-color: var(--color-almost-white);
+    }
+    .nav-inner ul {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
 
 
 /* -------------- FOOTER */
 footer {
 background-color: var(--alternative-bg-color);
 }
+.footer-subscribe {
+    background-color: var(--secondary-bg-color);
+    padding-top: var(--spacer-large);
+    padding-bottom: var(--spacer-large);
+    text-align: center;
+}
+.footer-notices {
+    padding-top: var(--spacer-large);
+    padding-bottom: var(--spacer-large);
+}
+.footer-notices .layout-wide {
+    text-align: center;
+}
+.copyright {
+    color: #ffff;
+}
+/* social icons*/
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.social-links li {
+    display: inline-block;
+    margin-left: 5x;
+    margin-right: 5px;
+}
+.social-links img {
+    width: 100%;
+    height: 100%;
+}
+.social-links a {
+    max-width: 30px;
+    display: block;
+    transform: scale(0.8);
+    transition: all var(--transition-time)
+}
+.social-links a:hover {
+    transform: scale(1);
+}
+/* subscribe forms*/
+label {
+    display: block;
+    font-weight: bold;
+}
+input[type=text],
+input[type=email] {
+    border: 1px solid var(--color-secondary-c);
+    border-radius: 4px;
+    padding: 10px;
+    width: 480px;
+    max-width: 100%;
+    margin-bottom: var(--spacer);
+}
+input[type=submit] {
+    border: none;
+    font-family: var(--font-heading);
+    background-color: var(--color-primary-a);
+    text-transform: uppercase;
+    padding: 20px;
+    border-radius: 30px;
+    min-width: 208px;
+}
+input[type=submit]:hover {
+    background-color: var(--color-secondary-a)
+}
 
+@media screen and (min-width: 800px) {
+    .footer-notices .layout-wide {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+    }
+    .social-links {
+        text-align: right;
+    }
+}
 /* -------------- FORMS */
 
 
