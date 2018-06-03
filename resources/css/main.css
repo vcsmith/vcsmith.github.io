@@ -359,7 +359,81 @@ input[type=submit]:hover {
     height: 100%;
 
 }
+/* hero modules */
+@media screen and (min-width: 800px) {
+    
+    .hero-module {
+        position: relative;
+    }
 
+    .hero-module img {
+        width: 100%
+    }
 
+    .hero-content {
+    text-align: center;
+    align-items: center;
+    display: flex;
 
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+
+    }
+
+    .hero-content h1 {
+        color: white;
+        text-shadow: 0px 1px 10px var(--color-secondary-b);
+    }
+}
+/* image gallery */
+
+.image-gallery ul {
+    list-style: none;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+.image-gallery li {
+    float: left;
+    max-width: 250px;
+    margin: 10px;
+}
+.image-gallery a img {
+    box-shadow: 0 1px 10px var(--color-secondary-b);
+    filter: grayscale(50%);
+    transition: var(--transition-time);
+}
+.image-gallery a:hover img {
+    transform: scale(1.05);
+    filter: unset;
+}
+@supports (display: grid) {
+    .image-gallery ul {
+        overflow: auto;
+
+    }
+    .image-gallery li {
+        float: none;
+        max-width: 100%;
+        margin: 0;
+    }
+
+}
+/* content grid */
+
+@media screen and (min-width: 800px) {
+    .content-area-grid {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-between;
+    }
+}
 /* this is a comment */
